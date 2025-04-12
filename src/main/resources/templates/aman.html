@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="parent(content,title,script)" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-replace="${title}">SCM</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar inclusion -->
+    <div th:replace="~{navbar :: navbar}"></div>
+
+    <!-- Main content area -->
+    <div id="content">
+        <div th:fragment="content">
+            <!-- This will be overridden by individual pages -->
+            <p>This is the base content that will be replaced by specific content on each page.</p>
+        </div>
+    </div>
+
+    <!-- Scripts can be dynamically added here -->
+    <div th:replace="${script}"></div>
+</body>
+</html>

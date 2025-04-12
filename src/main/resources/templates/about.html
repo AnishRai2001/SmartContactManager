@@ -1,0 +1,19 @@
+<!-- src/main/resources/templates/about.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">About</title>
+</head>
+<body>
+    <div th:replace="base :: parent('content, title')">
+        <div th:with="title='About Us'">
+            <div th:with="content='content'">
+                <h1>About Us</h1>
+                <p>This is a company that offers great services!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(content='~{profile_content}', title='Profile')}">
+<body>
+
+<div th:fragment="profile_content">
+    <h1>Welcome, <span th:text="${user.name}">User</span>!</h1>
+    <p>Welcome to the Profile Page</p>
+    <p>I provide good services</p>
+    <p th:text="${user.name}">Anish Rai</p>
+    <p th:text="${user.email}">anishrai146@gmail.com</p>
+</div>
+
+</body>
+</html>

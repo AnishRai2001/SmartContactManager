@@ -1,0 +1,20 @@
+<!-- src/main/resources/templates/service.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Service Page</title>
+</head>
+<body>
+    <!-- This will use the base layout -->
+    <div th:replace="base :: parent('content, title')">
+        <div th:with="title='Service Page'">
+            <div th:with="content='content'">
+                <h1>Welcome to the Service Page</h1>
+                <h2>I provide good services</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
