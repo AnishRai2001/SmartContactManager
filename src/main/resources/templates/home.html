@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${title}">Default Title</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home</title>
 </head>
-<body class="bg-gray-100">
+<body>
 
-    <!-- Navbar -->
-    <div th:replace="fragments/navbar :: navbar"></div>
+<!-- Apply base layout and pass the content fragment inline -->
+<div th:replace="~{base :: layout(content=~{::content}, title='Home Page')}">
 
-    <!-- Page Content -->
-    <main class="p-4">
-        <h1 th:text="${message}">Welcome to the Home Page</h1>
-    </main>
+    <!-- This fragment will be passed into base.html as the "content" -->
+    <div th:fragment="content">
+        <div class="max-w-3xl mx-auto p-8">
+            <h1 class="text-3xl font-bold mb-4">Welcome to SCM2.0!</h1>
+            <p class="text-lg">This is the home page.</p>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

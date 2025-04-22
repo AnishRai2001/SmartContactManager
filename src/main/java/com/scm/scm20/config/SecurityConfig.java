@@ -54,7 +54,7 @@ public class SecurityConfig {
                 formLogin.loginPage("/login")  // Custom login page if you have one
                          .permitAll()           // Allow anyone to access login page
                          .loginProcessingUrl("/authenticate")
-                         .defaultSuccessUrl("/user/dashboard", true)  // Redirect after successful login
+                         .defaultSuccessUrl("/user/profile", true)  // Redirect after successful login
                          .failureUrl("/login?error=true")  // Optional: specify a failure page
                          .usernameParameter("email")  // Custom username parameter
                          .passwordParameter("password");  // Custom password parameter
@@ -69,6 +69,7 @@ public class SecurityConfig {
                 oauth2Login
                     .loginPage("/login")  // Optional: Custom login page URL
                     .permitAll()  // Allow anyone to access the login page
+                    .defaultSuccessUrl("/profile", true)
                     .successHandler(authenticationSuccessHandler) 
                     .failureUrl("/login?error=true");  // Redirect to failure page
             });
@@ -83,75 +84,3 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 }
-      
-
-
-
-		   
-
-	        
-
-
-
-
-
-
-
-
-	  
-
-
-//formLogin.failureHandler(new AuthenticationFailureHandler() {
-//	
-//	@Override
-//	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-//			AuthenticationException exception) throws IOException, ServletException {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//});
-//
-//formLogin.successHandler(new AuthenticationSuccessHandler() {
-//	
-//	@Override
-//	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-//			Authentication authentication) throws IOException, ServletException {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//});
-
-
-//httpSecurity
-//.csrf().disable()  // Disabling CSRF protection (for login page)
-//.authorizeRequests(authorizeRequests -> {
-//  authorizeRequests
-//      .requestMatchers("/user/**").authenticated()  // Ensure only authenticated users can access /user/**
-//      .anyRequest().permitAll();  // Allow all other requests
-//})
-
-
-
-
-
-
-
-//@Configuration
-//@EnableWebSecurity
-//public class SecurityConfig 
-//  @Bean
-//  public UserDetailsService userDetailsService() {
-//      // Define users
-//      UserDetails user1 =User.withDefaultPasswordEncoder()
-//      		.username("Anish")
-//              .password("Anish@btm") //
-//              .roles("ADMIN")
-//              .build();
-//      UserDetails user2 = User.withDefaultPasswordEncoder()
-//      		.username("Manish")
-//              .password("Manish@adani") // 
-//              .roles("USER")
-//              .build();
-//      Store users in memory
-//      return new InMemoryUserDetails Manager(user1, user2);
-//  }

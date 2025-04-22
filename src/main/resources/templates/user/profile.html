@@ -1,13 +1,28 @@
+<!-- templates/user/profile.html -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(content='~{profile_content}', title='Profile')}">
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
 
+<!-- Inject base layout and pass in the local fragment -->
+<div th:replace="~{base :: layout(content=~{::profile_content}, title='Profile Page')}"></div>
+
+<!-- Define the profile_content fragment locally -->
 <div th:fragment="profile_content">
-    <h1>Welcome, <span th:text="${user.name}">User</span>!</h1>
-    <p>Welcome to the Profile Page</p>
-    <p>I provide good services</p>
-    <p th:text="${user.name}">Anish Rai</p>
-    <p th:text="${user.email}">anishrai146@gmail.com</p>
+    <!-- Always show navbar -->
+    <header th:replace="~{user/user_navbar :: user-navbar}"></header>
+
+    <!-- Only show sidebar if user is logged in -->
+    <div th:if="${loggedinUser}">
+        <header th:replace="~{user/sidebar :: sidebar}"></header>
+    </div>
+
+    <div id="content" class="pl-66 pt-22">
+        <h1>Welcome, <span th:text="${user.name}">User</span>!</h1>
+        <p>Welcome to the Profile Page</p>
+        <p>I provide good services</p>
+        <p th:text="${user.name}">Anish Rai</p>
+        <p th:text="${user.email}">anishrai146@gmail.com</p>
+    </div>
 </div>
 
 </body>

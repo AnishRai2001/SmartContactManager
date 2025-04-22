@@ -1,19 +1,21 @@
-<!-- src/main/resources/templates/about.html -->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${title}">About</title>
+    <title>About</title>
 </head>
 <body>
-    <div th:replace="base :: parent('content, title')">
-        <div th:with="title='About Us'">
-            <div th:with="content='content'">
-                <h1>About Us</h1>
-                <p>This is a company that offers great services!</p>
-            </div>
-        </div>
-    </div>
+    <!-- Correct fragment reference -->
+	<div th:replace="~{base :: layout(content=~{::content}, title='About Page')}">
+
+    <!-- Provide the content fragment -->
+    <th:block th:fragment="content">
+        <h1 class="text-3xl font-bold">Welcome to the About Page</h1>
+        <p class="text-gray-600">
+            Hello, <span th:text="${name}">User</span>! GitHub: <span th:text="${github}">Handle</span>
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        </p>
+    </th:block>
 </body>
 </html>

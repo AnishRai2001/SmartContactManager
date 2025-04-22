@@ -1,5 +1,7 @@
 package com.scm.scm20.controller;
 
+import com.scm.scm20.helper.Helper; // ✅ Correct
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.scm.scm20.Exception.ResourceNotFoundException;
 import com.scm.scm20.UserService.UserService;
 import com.scm.scm20.entity.User;
-import com.scm.scm20.helper.Helper;
+
 
 @ControllerAdvice
 public class Rootcontroller {

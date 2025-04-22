@@ -1,5 +1,6 @@
 package com.scm.scm20.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.scm.scm20.Exception.ResourceNotFoundException;
 import com.scm.scm20.UserService.UserService;
 import com.scm.scm20.entity.User;
-import com.scm.scm20.helper.Helper;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,10 +31,20 @@ public class UserController {
         return "user/dashboard"; // Thymeleaf template for dashboard
     }
     
-    @GetMapping("profile")
-       public String userProfile(Model model, Authentication authentication) {
-        return  "user/profile";
+//    @GetMapping("/profile")
+//       public String userProfile(Model model, Authentication authentication) {
+//    	User user = (User) authentication.getPrincipal();
+//        model.addAttribute("user", user);
+//    	return  "user/profile";
+//    }
+  
+    @GetMapping("/profile")
+    public String userProfile(@ModelAttribute("loggedinUser") User user, Model model) {
+        model.addAttribute("user", user); // Optional, can just use "loggedinUser" in Thymeleaf
+        return "user/profile";
     }
+
+
     
     
 //    @ModelAttribute

@@ -1,19 +1,22 @@
-<!-- src/main/resources/templates/contact.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${title}">Contact</title>
+    <title>Contact</title>
 </head>
 <body>
-    <div th:replace="base :: parent('content, title')">
-        <div th:with="title='Contact Us'">
-            <div th:with="content='content'">
-                <h1>Contact Us</h1>
-                <p>If you have any questions, feel free to contact us.</p>
-            </div>
-        </div>
-    </div>
+    <!-- Use only one layout reference -->
+	<div th:replace="~{base :: layout(content=~{::content}, title='contact Page')}">
+
+    <!-- Provide the content fragment -->
+    <th:block th:fragment="content">
+        <h1 class="text-3xl font-bold">Welcome to the Contact Page</h1>
+        <h2>Contact Us</h2>
+        <p>Email: example@example.com</p>
+        <p>Phone: +1234567890</p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit... [your full text here]
+        </p>
+    </th:block>
 </body>
 </html>

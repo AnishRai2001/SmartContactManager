@@ -1,5 +1,7 @@
 package com.scm.scm20.entity;
 
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

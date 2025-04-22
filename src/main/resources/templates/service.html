@@ -1,20 +1,22 @@
-<!-- src/main/resources/templates/service.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${title}">Service Page</title>
+    <title>Service</title>
 </head>
 <body>
-    <!-- This will use the base layout -->
-    <div th:replace="base :: parent('content, title')">
-        <div th:with="title='Service Page'">
-            <div th:with="content='content'">
-                <h1>Welcome to the Service Page</h1>
-                <h2>I provide good services</h2>
-            </div>
-        </div>
-    </div>
+    <!-- Only one th:replace with the correct content and title -->
+	<div th:replace="~{base :: layout(content=~{::content}, title='Home Page')}">
+
+    <!-- Provide the content fragment -->
+    <th:block th:fragment="content">
+        <h1 class="text-3xl font-bold">Welcome to the Service Page</h1>
+        <p class="text-gray-600">
+            Hello, <span th:text="${name}">User</span>! GitHub: <span th:text="${github}">Handle</span>
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit... [your full text here]
+        </p>
+    </th:block>
 </body>
 </html>

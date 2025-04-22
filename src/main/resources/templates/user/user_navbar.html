@@ -1,11 +1,47 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<body>
-   <div th:fragment="user-navbar">
-       <nav>
-           <h1>Welcome, User!</h1>
-           <!-- Add user-specific links -->
-       </nav>
-   </div>
-</body>
-</html>
+<nav th:fragment="user-navbar" class="bg-white text-blue-900 text-sm w-full fixed top-0 z-50  shadow">
+ <div class="flex flex-wrap items-center justify-between pr-3 py-3">
+    <!-- Logo -->
+    <a href="https://flowbite.com/" class="flex items-center space-x-4 rtl:space-x-reverse">
+      <img th:src="@{/images/book.png}" class="h-7" alt="SCM2.0 Logo" />
+      <span class="self-center text-lg font-semibold whitespace-nowrap">SCM2.0</span>
+    </a>
+
+    <!-- Buttons -->
+    <div class="flex md:order-2 gap-2 space-x-4 md:space-x-0 rtl:space-x-reverse">
+      <a th:href="@{/user/profile}">
+        <button type="button" class="text-blue-900 bg-white hover:bg-blue-100 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-3 py-2">
+          <span th:text="${loggedinUser.name}">Username</span>
+        </button>
+      </a>
+      <a th:href="@{/logout}">
+        <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-300 font-medium rounded-md text-sm px-3 py-2">
+          Logout
+        </button>
+      </a>
+      <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-9 h-9 justify-center text-blue-900 rounded-lg md:hidden hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Nav items -->
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+      <ul class="flex flex-col font-medium text-lg p-3 md:p-0 mt-2 rounded-lg md:space-x-12 rtl:space-x-reverse md:flex-row md:mt-0">
+        <li>
+          <a th:href="@{/home}" class="block py-2 px-4 md:p-0 text-pink-900 hover:text-white">Home</a>
+        </li>
+        <li>
+          <a th:href="@{/about}" class="block py-2 px-4 md:p-0 text-blue-900 hover:text-white">About</a>
+        </li>
+        <li>
+          <a th:href="@{/service}" class="block py-2 px-4 md:p-0 text-blue-900 hover:text-white">Services</a>
+        </li>
+        <li>
+          <a th:href="@{/contact}" class="block py-2 px-4 md:p-0 text-blue-900 hover:text-white">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

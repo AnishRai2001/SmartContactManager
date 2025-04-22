@@ -147,48 +147,11 @@ public class OAuthenticationSuccessHandler implements AuthenticationSuccessHandl
             // Save new user to the database
             userRepository.save(user);
         }
-        response.sendRedirect("/user/dashboard");
+        response.sendRedirect("/user/profile");
     }
 }
 
  
 
 //    
-           
-    	
-//        DefaultOAuth2User user = (DefaultOAuth2User) authentication.getPrincipal();
-//        Map<String, Object> attributes = user.getAttributes();
-//
-//        String email = (String) attributes.get("email");
-//        String name = (String) attributes.get("name");
-//        String picture = (String) attributes.get("picture");
-//
-//        System.out.println("User logged in: " + email);
-//        System.out.println("Name: " + name);
-//        System.out.println("Picture: " + picture);
-//
-//        // Check if user already exists
-//        Optional<User> existingUserOptional = userRepository.findByEmail(email);
-//        if (existingUserOptional.isEmpty()) {
-//            // Create new user
-//            User newUser = new User();
-//            newUser.setUserId(UUID.randomUUID().toString());
-//            newUser.setEmail(email);
-//            newUser.setName(name);
-//            newUser.setProfilePic(picture);
-//            newUser.setPassword(UUID.randomUUID().toString());  // Generate random password
-//            newUser.setProvider(Provider.GOOGLE);
-//            newUser.setEnabled(true);
-//            newUser.setEmailVerified(true);
-//            newUser.setRoleList(List.of(AppConstants.ROLE_USER));
-//            newUser.setAbout("This account is created using Google OAuth");
-//
-//            System.out.println("Saving new user: " + newUser);
-//            userRepository.save(newUser);
-//        } else {
-//            System.out.println("User already exists in database.");
-//        }
-
-//        response.sendRedirect("/user/dashboard");
-//    }
-//}
+   

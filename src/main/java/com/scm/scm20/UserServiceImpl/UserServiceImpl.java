@@ -113,6 +113,12 @@ public class UserServiceImpl implements UserService {
 	            });
 	}
 
+	@Override
+	public boolean isNameTaken(String name) {
+	    return userRepository.existsByName(name);
+	}
+
+
 
 
 

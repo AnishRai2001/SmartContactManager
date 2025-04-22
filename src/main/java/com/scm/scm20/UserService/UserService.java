@@ -1,7 +1,11 @@
 package com.scm.scm20.UserService;
 
 import java.util.List;
+
+import com.scm.scm20.UserForm.UserForm;
 import com.scm.scm20.entity.User;
+
+import jakarta.validation.Valid;
 
 public interface UserService {
     User saveUser(User user);
@@ -23,4 +27,6 @@ public interface UserService {
 	boolean isPhoneNumberTaken(String phoneNumber);
 	
 	User getUserByEmail(String email);
+
+	boolean isNameTaken(String name);
 }
